@@ -13,8 +13,14 @@ public class Muchy extends JPanel implements Runnable {
 	public Muchy() {
 		this.setPreferredSize(new Dimension(640, 480));
 		ar = new Mucha[30];
-		for (int i = 0; i < ar.length; ++i)
-			ar[i] = new Mucha();
+		for (int i = 0; i < ar.length; i++) {
+			int randomNumber = (int) Math.round(Math.random());
+			if(randomNumber == 0){
+				ar[i] = new MuchaRandomDirection();
+			} else{
+				ar[i] = new MuchaCircular();
+			}
+		}
 	}
 
 	@Override
